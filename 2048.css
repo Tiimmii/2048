@@ -2,4 +2,6 @@
     width: 400px;
     height: 400px;
     background: blue;
+    display: flex;
+    flex-wrap: wrap;
 }
