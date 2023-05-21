@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let width = 16
     let squares = []
 
+    //drawing the initial box
     function drawBox(){
         for(let i=0; i<width; i++){
             let square = document.createElement('div')
@@ -15,6 +16,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
         generate()
     }
     drawBox()
+
+    // generate 2's randomly
     function generate(){
         let rand_num = Math.floor(Math.random() * squares.length)
         if(squares[rand_num].innerHTML==0){
@@ -22,7 +25,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
         else generate()
     }
-
+    // move right
     function moveRight(){
         for(let i=0; i<16; i++){
             if(i%4===0){
@@ -43,6 +46,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             }
         }
     }
+    // move left
     function moveLeft(){
         for(let i=0; i<16; i++){
             if(i%4===0){
