@@ -94,5 +94,5 @@ moveLeft()
         moveLeft()
         combineRow()
     }
-    document.addEventListener('keyup', control())
+    document.addEventListener('keyup', control)
 })
