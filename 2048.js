@@ -64,4 +64,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
 }
 moveLeft()
+    function combineRow(){
+        for(let i=0; i<width-1; i++){
+            if(squares[i].innerHTML==squares[i+1].innerHTML){
+                let total = squares[i].innerHTML + squares[i+1].innerHTML
+                squares[i].innerHTML = total
+                squares[i+1].innerHTML = 0
+            }
+        }
+    }
 })
