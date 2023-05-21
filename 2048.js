@@ -77,4 +77,22 @@ moveLeft()
             }
         }
     }
+
+    function control(e){
+        if(e.keyCode == 39){
+            keyRight()
+        }
+        if(e.keyCode == 37){
+           keyLeft()
+        }
+    }
+    function keyRight(){
+        moveRight()
+        combineRow()
+    }
+    function keyLeft(){
+        moveLeft()
+        combineRow()
+    }
+    document.addEventListener('keyup', control())
 })
