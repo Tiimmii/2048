@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 let filteredRow = row.filter(num => num)
                 let missing = 4 - filteredRow.length
                 let zeros = Array(missing).fill(0)
-                let shifted = zeros.concat(filteredRow)
+                let shifted = filteredRow.concat(zeros)
                 squares[i].innerHTML = shifted[0]
                 squares[i+1].innerHTML = shifted[1]
                 squares[i+2].innerHTML = shifted[2]
@@ -63,4 +63,5 @@ document.addEventListener('DOMContentLoaded', ()=>{
             }
     }
 }
+moveLeft()
 })
