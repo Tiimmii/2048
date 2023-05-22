@@ -127,8 +127,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if(e.keyCode == 39){
             keyRight()
         }
-        if(e.keyCode == 37){
+        else if(e.keyCode == 37){
            keyLeft()
+        }
+        else if(e.keyCode == 38){
+            keyUp()
+        }
+        else if(e.keyCode == 40){
+            keyDown()
         }
     }
     function keyRight(){
@@ -143,6 +149,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
     function keyUp(){
         moveUp()
+        combineColumn()
+        moveUp()
+    }
+    function keyDown(){
+        moveDown()
+        combineColumn()
+        moveDown()
     }
     document.addEventListener('keyup', control)
 })
