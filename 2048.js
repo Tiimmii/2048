@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', ()=>{
     let displarGrid = document.querySelector('.grid')
-    let score = document.getElementById('score-value')
+    let scoreDisplay = document.getElementById('score-value')
     let resultDisplay = document.getElementById('result')
     let width = 4
     let squares = []
+    let score = 0
 
     //drawing the initial box
     function drawBox(){
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         let rand_num = Math.floor(Math.random() * squares.length)
         if(squares[rand_num].innerHTML==0){
             squares[rand_num].innerHTML=2
+            checkForLoss()
         }
         else generate()
     }
@@ -112,6 +114,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 let total = parseInt(squares[i].innerHTML) + parseInt(squares[i+1].innerHTML)
                 squares[i].innerHTML = total
                 squares[i+1].innerHTML = 0
+                score += total
+                scoreDisplay.innerHTML = score
             }
         }
     }
@@ -121,6 +125,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 let total = parseInt(squares[i].innerHTML) + parseInt(squares[i+width].innerHTML)
                 squares[i].innerHTML = total
                 squares[i+width].innerHTML = 0
+                score += total
+                scoreDisplay.innerHTML = score
             }
         }
     }
