@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', ()=>{
     let displarGrid = document.querySelector('.grid')
     let score = document.getElementById('score-value')
+    let resultDisplay = document.getElementById('result')
     let width = 4
     let squares = []
 
@@ -167,8 +168,22 @@ document.addEventListener('DOMContentLoaded', ()=>{
     function checkForWin(){
         for(let i=0; i<16; i++){
             if(squares[i].innerHTML == 2048){
-                
+                resultDisplay.innerHTML == "You Win"
+                document.removeEventListener('keyup', control)
             }
+        }
+    }
+    //check for a loss
+    function checkForLoss(){
+        zeros = 0
+        for(let i=0; i<16; i++){
+            if(squares[i].innerHTML == 0){
+                zeros++
+            }
+        }
+        if(zeros == 0){
+            resultDisplay.innerHTML == "You Lose"
+            document.removeEventListener('keyup', control)
         }
     }
 })
