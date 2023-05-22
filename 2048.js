@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
     }
     function combineRow(){
-        for(let i=0; i<width-1; i++){
+        for(let i=0; i<15; i++){
             if(squares[i].innerHTML==squares[i+1].innerHTML){
                 let total = parseInt(squares[i].innerHTML) + parseInt(squares[i+1].innerHTML)
                 squares[i].innerHTML = total
@@ -114,7 +114,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
             }
         }
     }
-
+    function combineColumn(){
+        for(let i=0; i<12; i++){
+            if(squares[i].innerHTML==squares[i+width].innerHTML){
+                let total = parseInt(squares[i].innerHTML) + parseInt(squares[i+width].innerHTML)
+                squares[i].innerHTML = total
+                squares[i+width].innerHTML = 0
+            }
+        }
+    }
     function control(e){
         if(e.keyCode == 39){
             keyRight()
