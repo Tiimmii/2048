@@ -39,9 +39,11 @@ body {
     font-weight: bold;
     transition: all 0.3s ease;
 }
+
 .grid div.slide-in{
     animation: slide-in 0.3s ease;
 }
+
 @keyframes slide-in {
     0% {
       transform: translateX(-100%);
@@ -50,6 +52,7 @@ body {
       transform: translateX(0);
     }
   }
+  
 .x2 {
     background-color: #eee4da;
     color: #727371;
