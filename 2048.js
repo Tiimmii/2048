@@ -164,4 +164,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
     document.addEventListener('keyup', control)
 
     //check for a win
+    function checkForWin(){
+        for(let i=0; i<16; i++){
+            if(squares[i].innerHTML == 2048){
+                
+            }
+        }
+    }
 })
