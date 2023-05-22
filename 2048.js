@@ -162,4 +162,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
         generate()
     }
     document.addEventListener('keyup', control)
+
+    //check for a win
 })
