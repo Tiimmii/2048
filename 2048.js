@@ -141,21 +141,25 @@ document.addEventListener('DOMContentLoaded', ()=>{
         moveRight()
         combineRow()
         moveRight()
+        generate()
     }
     function keyLeft(){
         moveLeft()
         combineRow()
         moveLeft()
+        generate()
     }
     function keyUp(){
         moveUp()
         combineColumn()
         moveUp()
+        generate()
     }
     function keyDown(){
         moveDown()
         combineColumn()
         moveDown()
+        generate()
     }
     document.addEventListener('keyup', control)
 })
