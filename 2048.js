@@ -24,7 +24,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
         let rand_num = Math.floor(Math.random() * squares.length)
         if(squares[rand_num].innerHTML==0){
             squares[rand_num].innerHTML=2
+            checkForWin()
             checkForLoss()
+            tileColours()
         }
         else generate()
     }
@@ -190,6 +192,66 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if(zeros == 0){
             resultDisplay.innerHTML == "You Lose"
             document.removeEventListener('keyup', control)
+        }
+    }
+    function tileColours(){
+        for(let i=0; i<16; i++){
+            if(squares[i].innerHTML == 2){
+                squares[i].style.backgroundColor = "#eee4da"
+                squares[i].style.colour = "#727371"
+            }
+            else if(squares[i].innerHTML == 4){
+                squares[i].style.backgroundColor = "#ece0ca"
+                squares[i].style.colour = "#727371"
+            }
+            else if(squares[i].innerHTML == 8){
+                squares[i].style.backgroundColor = "#f4b17a"
+                squares[i].style.colour = "white"
+            }
+            else if(squares[i].innerHTML == 16){
+                squares[i].style.backgroundColor = "#f59575"
+                squares[i].style.colour = "white"
+            }
+            else if(squares[i].innerHTML == 32){
+                squares[i].style.backgroundColor = "#f57c5f"
+                squares[i].style.colour = "white"
+            }
+            else if(squares[i].innerHTML == 64){
+                squares[i].style.backgroundColor = "#f65d3b"
+                squares[i].style.colour = "white"
+            }
+            else if(squares[i].innerHTML == 128){
+                squares[i].style.backgroundColor = "#edce71"
+                squares[i].style.colour = "white"
+            }
+            else if(squares[i].innerHTML == 256){
+                squares[i].style.backgroundColor = "#edcc63"
+                squares[i].style.colour = "white"
+            }
+            else if(squares[i].innerHTML == 512){
+                squares[i].style.backgroundColor = "#edc651"
+                squares[i].style.colour = "white"
+            }
+            else if(squares[i].innerHTML == 1024){
+                squares[i].style.backgroundColor = "#eec744"
+                squares[i].style.colour = "white"
+            }
+            else if(squares[i].innerHTML == 2048){
+                squares[i].style.backgroundColor = "#ecc230"
+                squares[i].style.colour = "white"
+            }
+            else if(squares[i].innerHTML == 4096){
+                squares[i].style.backgroundColor = "#fe3d3d"
+                squares[i].style.colour = "white"
+            }
+            else if(squares[i].innerHTML == 8192){
+                squares[i].style.backgroundColor = "#ff2020"
+                squares[i].style.colour = "white"
+            }
+            else if(squares[i].innerHTML == 0){
+                squares[i].style.backgroundColor = "#cdc1b5"
+                squares[i].style.colour = "#727371"
+            }
         }
     }
 })

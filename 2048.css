@@ -1,14 +1,17 @@
 .grid{
     width: 400px;
     height: 400px;
-    background: blue;
+    background-color: #cdc1b5;
+    border: 6px solid #bbada0;
     display: flex;
     flex-wrap: wrap;
 }
+
 .grid div{
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
+    width: 90px;
+    height: 90px;
+    border: 5px solid #bbada0;
     text-align: center;
-    font-size: 60px;
+    font-size: 30px;
+    font-weight: bold;
 }
