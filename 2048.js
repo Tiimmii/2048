@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', ()=>{
     let displarGrid = document.querySelector('.grid')
     let scoreDisplay = document.getElementById('score-value')
-    let resultDisplay = document.getElementById('result')
+    let resultDisplay = document.getElementById('result-value')
     let width = 4
     let squares = []
     let score = 0
@@ -19,17 +19,19 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
     drawBox()
 
+
     // generate 2's randomly
     function generate(){
         let rand_num = Math.floor(Math.random() * squares.length)
         if(squares[rand_num].innerHTML==0){
             squares[rand_num].innerHTML=2
-            checkForWin()
             checkForLoss()
-            tileColours()
+            checkForWin()
+            tileColor()
         }
         else generate()
     }
+    
     // move right
     function moveRight(){
         for(let i=0; i<16; i++){
@@ -72,6 +74,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             }
     }
 }
+    //move down
     function moveDown(){
         for(let i=0; i<width; i++){
             let totalOne = squares[i].innerHTML
@@ -91,6 +94,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             squares[i+(width*3)].innerHTML = shifted[3]
         }
     }
+    //move up
     function moveUp(){
         for(let i=0; i<width; i++){
             let totalOne = squares[i].innerHTML
@@ -117,7 +121,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 squares[i].innerHTML = total
                 squares[i+1].innerHTML = 0
                 score += total
-                scoreDisplay.innerHTML = score
+                scoreDisplay.innerHTML = "Your Score: "+score
             }
         }
     }
@@ -128,7 +132,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 squares[i].innerHTML = total
                 squares[i+width].innerHTML = 0
                 score += total
-                scoreDisplay.innerHTML = score
+                scoreDisplay.innerHTML = "Your Score: "+score
             }
         }
     }
@@ -180,6 +184,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 document.removeEventListener('keyup', control)
             }
         }
+        win = true
     }
     //check for a loss
     function checkForLoss(){
@@ -189,69 +194,18 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 zeros++
             }
         }
-        if(zeros == 0){
-            resultDisplay.innerHTML == "You Lose"
+        if(zeros === 0){
+            resultDisplay.innerHTML == "You Lose!"
             document.removeEventListener('keyup', control)
         }
+        loss = true
     }
-    function tileColours(){
+    //adding tile colours
+    function tileColor(){
         for(let i=0; i<16; i++){
-            if(squares[i].innerHTML == 2){
-                squares[i].style.backgroundColor = "#eee4da"
-                squares[i].style.colour = "#727371"
-            }
-            else if(squares[i].innerHTML == 4){
-                squares[i].style.backgroundColor = "#ece0ca"
-                squares[i].style.colour = "#727371"
-            }
-            else if(squares[i].innerHTML == 8){
-                squares[i].style.backgroundColor = "#f4b17a"
-                squares[i].style.colour = "white"
-            }
-            else if(squares[i].innerHTML == 16){
-                squares[i].style.backgroundColor = "#f59575"
-                squares[i].style.colour = "white"
-            }
-            else if(squares[i].innerHTML == 32){
-                squares[i].style.backgroundColor = "#f57c5f"
-                squares[i].style.colour = "white"
-            }
-            else if(squares[i].innerHTML == 64){
-                squares[i].style.backgroundColor = "#f65d3b"
-                squares[i].style.colour = "white"
-            }
-            else if(squares[i].innerHTML == 128){
-                squares[i].style.backgroundColor = "#edce71"
-                squares[i].style.colour = "white"
-            }
-            else if(squares[i].innerHTML == 256){
-                squares[i].style.backgroundColor = "#edcc63"
-                squares[i].style.colour = "white"
-            }
-            else if(squares[i].innerHTML == 512){
-                squares[i].style.backgroundColor = "#edc651"
-                squares[i].style.colour = "white"
-            }
-            else if(squares[i].innerHTML == 1024){
-                squares[i].style.backgroundColor = "#eec744"
-                squares[i].style.colour = "white"
-            }
-            else if(squares[i].innerHTML == 2048){
-                squares[i].style.backgroundColor = "#ecc230"
-                squares[i].style.colour = "white"
-            }
-            else if(squares[i].innerHTML == 4096){
-                squares[i].style.backgroundColor = "#fe3d3d"
-                squares[i].style.colour = "white"
-            }
-            else if(squares[i].innerHTML == 8192){
-                squares[i].style.backgroundColor = "#ff2020"
-                squares[i].style.colour = "white"
-            }
-            else if(squares[i].innerHTML == 0){
-                squares[i].style.backgroundColor = "#cdc1b5"
-                squares[i].style.colour = "#727371"
-            }
+            num = squares[i].innerHTML
+            squares[i].className = ''
+            squares[i].classList.add("x"+num.toString())
         }
     }
 })
