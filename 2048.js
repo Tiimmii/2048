@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if(squares[rand_num].innerHTML==0){
             squares[rand_num].innerHTML=2
             checkForLoss()
-            checkForWin()
             tileColor()
         }
         else generate()
@@ -124,6 +123,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 scoreDisplay.innerHTML = "Your Score: "+score
             }
         }
+        checkForWin()
     }
     function combineColumn(){
         for(let i=0; i<12; i++){
@@ -135,6 +135,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 scoreDisplay.innerHTML = "Your Score: "+score
             }
         }
+        checkForWin()
     }
     function control(e){
         if(e.keyCode == 39){
@@ -181,10 +182,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
         for(let i=0; i<16; i++){
             if(squares[i].innerHTML == 2048){
                 resultDisplay.innerHTML == "You Win"
-                document.removeEventListener('keyup', control)
+                // document.removeEventListener('keyup', control)
             }
         }
-        win = true
     }
     //check for a loss
     function checkForLoss(){
@@ -195,10 +195,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
             }
         }
         if(zeros === 0){
-            resultDisplay.innerHTML == "You Lose!"
+            resultDisplay.innerHTML = "You Lose!"
             document.removeEventListener('keyup', control)
         }
-        loss = true
     }
     //adding tile colours
     function tileColor(){
